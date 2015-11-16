@@ -5,17 +5,17 @@ import java.util.Calendar;
 import javax.persistence.Entity;
 
 @Entity
-public class TecnicoAdministrativo extends Usuario{
-
+public class Admin extends Usuario{
+	
 	private String siape;
 
-	public TecnicoAdministrativo() {
+	public Admin() {
 		super();
 	}
 
-	public TecnicoAdministrativo(long id, String nome, String campus,
-			String setor, String cpf, Calendar dataAdmissao, String celular,
-			String email, String senha, String siape) {
+	public Admin(long id, String nome, String campus, String setor, String cpf,
+			Calendar dataAdmissao, String celular, String email, String senha,
+			String siape) {
 		super(id, nome, campus, setor, cpf, dataAdmissao, celular, email, senha);
 		this.siape = siape;
 	}
@@ -27,7 +27,7 @@ public class TecnicoAdministrativo extends Usuario{
 	public void setSiape(String siape) {
 		this.siape = siape;
 	}
-
+	
 	@Override
 	public Object autenticacao() {
 		return getSiape();
@@ -35,8 +35,8 @@ public class TecnicoAdministrativo extends Usuario{
 
 	@Override
 	public String toString() {
-		return "TecnicoAdministrativo [siape=" + siape + ", toString()="
-				+ super.toString() + "]";
+		return "Admin [siape=" + siape + ", toString()=" + super.toString()
+				+ "]";
 	}
 	
 }

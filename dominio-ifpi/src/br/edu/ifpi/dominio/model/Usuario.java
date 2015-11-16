@@ -2,8 +2,21 @@ package br.edu.ifpi.dominio.model;
 
 import java.util.Calendar;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
+
+@Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="segmento")
 public abstract class Usuario {
 	
+	@Id
+	@GeneratedValue
 	private long id;
 	private String nome;
 	private String campus;
@@ -13,6 +26,9 @@ public abstract class Usuario {
 	private String celular;
 	private String email;
 	private String senha;
+	
+	@OneToOne(mappedBy="usuario")
+	private Solicitacao solitacao;
 	
 	protected Usuario() {
 		super();
@@ -105,6 +121,14 @@ public abstract class Usuario {
 		this.senha = senha;
 	}
 	
+	public Solicitacao getSolitacao() {
+		return solitacao;
+	}
+
+	public void setSolitacao(Solicitacao solitacao) {
+		this.solitacao = solitacao;
+	}
+
 	public abstract Object autenticacao();
 
 	@Override

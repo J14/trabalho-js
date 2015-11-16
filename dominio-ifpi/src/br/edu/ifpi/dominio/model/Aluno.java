@@ -2,6 +2,9 @@ package br.edu.ifpi.dominio.model;
 
 import java.util.Calendar;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Aluno extends Usuario{
 	
 	private String matricula;
