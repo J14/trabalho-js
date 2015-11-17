@@ -1,4 +1,4 @@
-package br.edu.ifpi.dominio.util;
+package br.edu.ifpi.dominio.model;
 
 public enum Status {
 

@@ -3,9 +3,13 @@ package br.edu.ifpi.dominio.model;
 import java.util.Calendar;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Solicitacao {
@@ -13,7 +17,10 @@ public class Solicitacao {
 	@Id 
 	@GeneratedValue
 	private long id;
+	@Temporal(TemporalType.DATE)
 	private Calendar contaCriada;
+	@Enumerated(EnumType.STRING)
+	private Status status;
 	@OneToOne
 	private Usuario usuario;
 	
@@ -51,6 +58,14 @@ public class Solicitacao {
 	public void setContaCriada(Calendar contaCriada) {
 		this.contaCriada = contaCriada;
 	}
+	
+	public Status getStatus() {
+		return status;
+	}
+	
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
 	@Override
 	public int hashCode() {
@@ -76,8 +91,8 @@ public class Solicitacao {
 
 	@Override
 	public String toString() {
-		return "Solicitacao [id=" + id + ", usuario=" + usuario
-				+ ", contaCriada=" + contaCriada + "]";
+		return "Solicitacao [id=" + id + ", contaCriada=" + contaCriada
+				+ ", status=" + status + ", usuario=" + usuario + "]";
 	}
-	
+
 }
