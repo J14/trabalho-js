@@ -2,7 +2,7 @@ package br.edu.ifpi.dominio.model;
 
 public enum Status {
 
-	EM_ESPERA("EM_ESPERA"), 
+	PENDENTE("PENDENTE"), 
 	APROVADO("APROVADO"), 
 	REPROVADO("REPROVADO");
 	
