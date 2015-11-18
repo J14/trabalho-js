@@ -1,5 +1,6 @@
 package br.edu.ifpi.dominio.dao;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -29,6 +30,23 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
 
 	public List<Usuario> pesquisar(String jql) {
 		return em.createQuery(jql, Usuario.class).getResultList();
+	}
+	
+	public Usuario isCadastrado(String ident, String senha) {
+		
+		List<Usuario> usuarios = pesquisar("SELECT u FROM Usuario u");
+		
+		Iterator<Usuario> i = usuarios.iterator();
+		
+		Usuario u;
+		
+		while(i.hasNext()) {
+			u = i.next();
+			if(u.autenticacao().equals(ident) && u.getSenha().equals(senha)) return u;
+		}
+		
+		return null;
+		
 	}
 
 }
