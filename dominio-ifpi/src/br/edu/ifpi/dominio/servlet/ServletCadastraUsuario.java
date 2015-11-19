@@ -1,6 +1,9 @@
 package br.edu.ifpi.dominio.servlet;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.persistence.EntityTransaction;
 import javax.servlet.ServletException;
@@ -78,7 +81,16 @@ public class ServletCadastraUsuario extends HttpServlet {
 		u.setSetor(setor);
 		u.setCpf(cpf);
 		//FIXME tipo Calendar
-		u.setDataAdmissao(null);
+		//u.setDataAdmissao(null);
+		
+		SimpleDateFormat formataData = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			u.setDataAdmissao(formataData.parse(dataAdmissao));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		u.setCelular(celular);
 		u.setEmail(email);
 		u.setSenha(senha);

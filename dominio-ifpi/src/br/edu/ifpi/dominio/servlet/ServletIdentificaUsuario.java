@@ -37,10 +37,10 @@ public class ServletIdentificaUsuario extends HttpServlet {
 		
 		if (u instanceof Admin) {
 			//FIXME mudar url
-			response.sendRedirect("admin.jsp");
+			response.sendRedirect("administrador.jsp");
 		} else {
 			//FIXME mudar url
-			response.sendRedirect("solicitacao.jsp");
+			response.sendRedirect("perfil.jsp");
 		}
 		
 	}

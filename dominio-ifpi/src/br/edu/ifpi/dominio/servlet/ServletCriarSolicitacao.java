@@ -1,6 +1,7 @@
 package br.edu.ifpi.dominio.servlet;
 
 import java.io.IOException;
+import java.util.Calendar;
 
 import javax.persistence.EntityTransaction;
 import javax.servlet.ServletException;
@@ -57,7 +58,10 @@ public class ServletCriarSolicitacao extends HttpServlet {
 		s.setUsuario(u);
 		s.setStatus(Status.PENDENTE);
 		//FIXME tipo Calendar
-		s.setContaCriada(null);
+		//s.setContaCriada(null);
+		
+		Calendar c = Calendar.getInstance();
+		s.setContaCriada(c.getTime());
 		
 		u.setSolitacao(s);
 		
@@ -67,7 +71,7 @@ public class ServletCriarSolicitacao extends HttpServlet {
 		dao.inserir(s);
 		et.commit();
 		
-		response.sendRedirect("solicitacao.jsp");
+		response.sendRedirect("perfil.jsp");
 	}
 
 }
