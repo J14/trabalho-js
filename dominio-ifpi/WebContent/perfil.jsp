@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="br.edu.ifpi.dominio.model.*" %>
+<%@ page import="br.edu.ifpi.dominio.dao.*" %>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,7 +22,7 @@
 		<div id="perfil" class="center">
 			<h1 class="center">Minha Solicitação</h1>
 
-			<table class="table center" border="1">
+			<!-- <table class="table center" border="1">
 				
 				<tr>
 					<td><strong>Nome</strong></td>
@@ -49,6 +52,24 @@
 					<td><strong>Email</strong></td>	
 					<td>fulanodetal@email.com	</td>
 				</tr>
+			</table> -->
+			
+			<% Usuario u = (Usuario) request.getSession().getAttribute("usuario"); %>
+			
+			<table class="table center" border="1">
+		
+			<%
+				Solicitacao s = u.getSolitacao(); 
+			
+				out.print("<tr>");
+				out.print("<td>"+s.toString()+"</td>");
+				out.print("</tr>");
+				
+				if(s.getStatus() == Status.APROVADO) {
+					//TODO link ou botao imprimir
+				}
+			%>
+		
 			</table>
 
 		</div>

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="br.edu.ifpi.dominio.model.*" %>
+<%@ page import="br.edu.ifpi.dominio.dao.*" %>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,7 +24,7 @@
 		<div id="adm" class="center">
 			<h1>Solicitações</h1>
 		
-			<table class="table">
+			<!-- <table class="table">
 				<strong>
 				<tr class="center">
 					<td><strong>Nome</strong></td>
@@ -86,7 +89,21 @@
 					<td>fulanodetal@email.com</td>
 					<td><button>Aprovar</button> <button>Recusar</button></td>
 				</tr>
-			</table>
+			</table> -->
+			
+			<%
+						List<Solicitacao> pendentes = new SolicitacaoDAO().pendentes(); 
+						
+						for(Solicitacao pendente : pendentes){
+							out.print("<tr>");
+							out.print("<td width=\"100\">"+pendente.getId()+"</td>");
+							out.print("<td>");
+							out.print("<a href=\"/dominio-ifpi/ServletStatusSolicitacao?id="+pendente.getId()+"\">Aprovado</a> |");
+							out.print("<a href=\"/dominio-ifpi/ServletStatusSolicitacao?id="+pendente.getId()+"\">Reprovado</a>");
+							out.print("</td>");
+							out.print("</tr>");
+						}
+			%>
 		</div>  
 
 

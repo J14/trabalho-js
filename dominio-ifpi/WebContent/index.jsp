@@ -43,16 +43,16 @@
 				<form action="ServletCadastraUsuario" method="post">
 					<input type="text" placeholder="Nome" name="nome" title="Nome completo"/>
 
-					<select id="segmento" title="Segmento">
+					<select id="segmento" title="Segmento" name="segmento">
 						<option >Segmento...</option>
-						<option id="aluno" name="aluno">Aluno</option>
-						<option name="docente">Docente</option>
-						<option name="aposentado">Aposentado</option>
-						<option name="TecAdmin">Técnico-Administrativo</option>
-						<option name="presServTerc">Prestador de Serviço</option>					 
+						<option id="aluno" value="aluno">Aluno</option>
+						<option value="docente">Docente</option>
+						<option value="aposentado">Aposentado</option>
+						<option value="TecAdmin">Técnico-Administrativo</option>
+						<option value="presServTerc">Prestador de Serviço-Terceirizado</option>					 
 					</select>
 
-					<input type="text" placeholder="SIAPE" name="SIAPE"/>
+					<input type="text" placeholder="Matricula/SIAPE" name="matriculaSiape"/>
 
 					<input type="text" placeholder="Campus" name="campus" title="Precisamos saber onde você estuda ou trabalha."/>
 					<input type="text" placeholder="Setor" name="setor"/>
@@ -62,6 +62,7 @@
 					<input type="text" placeholder="Data de Admissão" name="dataAdmissao"/>
 					<input type="text" placeholder="Telefone" name="celular"/>
 					<input type="text" placeholder="E-mail" name="email"/>
+					<input type="password" placeholder="Senha" name="senha" />
 
 					<input type="submit" value="Pedir Domínio" class="btn" id="btn"/>
 				</form>
