@@ -1,6 +1,6 @@
 package br.edu.ifpi.dominio.model;
 
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Entity;
 
@@ -12,7 +12,7 @@ public class Aposentado extends Usuario{
 	}
 
 	public Aposentado(long id, String nome, String campus, String setor,
-			String cpf, Calendar dataAdmissao, String celular, String email,
+			String cpf, Date dataAdmissao, String celular, String email,
 			String senha) {
 		super(id, nome, campus, setor, cpf, dataAdmissao, celular, email, senha);
 	}

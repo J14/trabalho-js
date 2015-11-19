@@ -1,6 +1,6 @@
 package br.edu.ifpi.dominio.model;
 
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -27,7 +27,7 @@ public abstract class Usuario {
 	private String setor;
 	private String cpf;
 	@Temporal(TemporalType.DATE)
-	private Calendar dataAdmissao;
+	private Date dataAdmissao;
 	private String celular;
 	private String email;
 	private String senha;
@@ -40,7 +40,7 @@ public abstract class Usuario {
 	}
 
 	protected Usuario(long id, String nome, String campus, String setor,
-			String cpf, Calendar dataAdmissao, String celular, String email,
+			String cpf, Date dataAdmissao, String celular, String email,
 			String senha) {
 		super();
 		this.id = id;
@@ -94,11 +94,11 @@ public abstract class Usuario {
 		this.cpf = cpf;
 	}
 
-	public Calendar getDataAdmissao() {
+	public Date getDataAdmissao() {
 		return dataAdmissao;
 	}
 
-	public void setDataAdmissao(Calendar dataAdmissao) {
+	public void setDataAdmissao(Date dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
 

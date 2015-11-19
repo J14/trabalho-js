@@ -1,6 +1,6 @@
 package br.edu.ifpi.dominio.model;
 
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Entity;
 
@@ -14,7 +14,7 @@ public class Docente extends Usuario{
 	}
 
 	public Docente(long id, String nome, String campus, String setor,
-			String cpf, Calendar dataAdmissao, String celular, String email,
+			String cpf, Date dataAdmissao, String celular, String email,
 			String senha, String siape) {
 		super(id, nome, campus, setor, cpf, dataAdmissao, celular, email, senha);
 		this.siape = siape;

@@ -1,6 +1,6 @@
 package br.edu.ifpi.dominio.model;
 
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -19,7 +19,7 @@ public class Solicitacao {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	@Temporal(TemporalType.DATE)
-	private Calendar contaCriada;
+	private Date contaCriada;
 	@Enumerated(EnumType.STRING)
 	private Status status;
 	@OneToOne
@@ -29,7 +29,7 @@ public class Solicitacao {
 		super();
 	}
 
-	public Solicitacao(long id, Usuario usuario, Calendar contaCriada) {
+	public Solicitacao(long id, Usuario usuario, Date contaCriada) {
 		super();
 		this.id = id;
 		this.usuario = usuario;
@@ -52,11 +52,11 @@ public class Solicitacao {
 		this.usuario = usuario;
 	}
 
-	public Calendar getContaCriada() {
+	public Date getContaCriada() {
 		return contaCriada;
 	}
 
-	public void setContaCriada(Calendar contaCriada) {
+	public void setContaCriada(Date contaCriada) {
 		this.contaCriada = contaCriada;
 	}
 	
