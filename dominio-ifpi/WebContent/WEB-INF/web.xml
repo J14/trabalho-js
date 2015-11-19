@@ -1,4 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  
+  <servlet>
+    <description></description>
+    <display-name>ServletIdentificaUsuario</display-name>
+    <servlet-name>ServletIdentificaUsuario</servlet-name>
+    <servlet-class>br.edu.ifpi.dominio.servlet.ServletIdentificaUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletIdentificaUsuario</servlet-name>
+    <url-pattern>/ServletIdentificaUsuario</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>FilterCadastro</display-name>
+    <filter-name>FilterCadastro</filter-name>
+    <filter-class>br.edu.ifpi.dominio.filtro.FilterCadastro</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FilterCadastro</filter-name>
+    <url-pattern>/ServletIdentificaUsuario</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletCriarSolicitacao</display-name>
+    <servlet-name>ServletCriarSolicitacao</servlet-name>
+    <servlet-class>br.edu.ifpi.dominio.servlet.ServletCriarSolicitacao</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletCriarSolicitacao</servlet-name>
+    <url-pattern>/ServletCriarSolicitacao</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletCadastraUsuario</display-name>
+    <servlet-name>ServletCadastraUsuario</servlet-name>
+    <servlet-class>br.edu.ifpi.dominio.servlet.ServletCadastraUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletCadastraUsuario</servlet-name>
+    <url-pattern>/ServletCadastraUsuario</url-pattern>
+  </servlet-mapping>
 </web-app>
