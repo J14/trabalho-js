@@ -49,4 +49,14 @@
     <servlet-name>ServletLogout</servlet-name>
     <url-pattern>/ServletLogout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletStatusSolicitacao</display-name>
+    <servlet-name>ServletStatusSolicitacao</servlet-name>
+    <servlet-class>br.edu.ifpi.dominio.servlet.ServletStatusSolicitacao</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletStatusSolicitacao</servlet-name>
+    <url-pattern>/ServletStatusSolicitacao</url-pattern>
+  </servlet-mapping>
 </web-app>
