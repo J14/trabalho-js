@@ -57,20 +57,25 @@ public class ServletCadastraUsuario extends HttpServlet {
 		case "aluno":
 			u = new Aluno();
 			((Aluno) u).setMatricula(matriculaSiape);
+			request.getSession().setAttribute("segmento", "Aluno");
 			break;
 		case "aposentado":
 			u = new Aposentado();
+			request.getSession().setAttribute("segmento", "Aposentado");
 			break;
 		case "presServTerc":
 			u = new PrestadorServicoTerceirizado();
+			request.getSession().setAttribute("segmento", "Prestador de Serviço-Terceirizado");
 			break;
 		case "docente":
 			u = new Docente();
 			((Docente) u).setSiape(matriculaSiape);
+			request.getSession().setAttribute("segmento", "Docente");
 			break;
 		case "TecAdmin":
 			u = new TecnicoAdministrativo();
 			((TecnicoAdministrativo) u).setSiape(matriculaSiape);
+			request.getSession().setAttribute("segmento", "Tecnico Administrativo");
 			break;
 		default:
 			break;
