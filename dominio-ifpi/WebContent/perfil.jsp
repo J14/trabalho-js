@@ -21,54 +21,67 @@
 
 		<div id="perfil" class="center">
 			<h1 class="center">Minha Solicitação</h1>
-
-			<!-- <table class="table center" border="1">
-				
-				<tr>
-					<td><strong>Nome</strong></td>
-					<td colspan="3">João Ferreira da Silva</td>
-				</tr>
-				<tr>
-					<td><strong>	Segmento	</strong></td>				
-					<td>			Aluno		</td>
-					<td><strong>	Campus		</strong></td>			
-					<td>			Parnaiba	</td>
-				</tr>
-				<tr>
-					<td><strong>	CPF			</strong></td>				
-					<td>			356.968.798-00		</td>
-					<td><strong>	Setor		</strong></td>			
-					<td>			7	</td>
-				</tr>
-				<tr>
-					<td><strong>Matricula / SIAPE</strong></td>				
-					<td>			20071ASC1298-6	</td>
-					<td><strong>Data de Admissão</strong></td>	
-					<td>			12/04/2345	</td>
-				</tr>
-				<tr>
-					<td><strong>Celular</strong></td>				
-					<td>			9845-1286	</td>
-					<td><strong>Email</strong></td>	
-					<td>fulanodetal@email.com	</td>
-				</tr>
-			</table> -->
 			
-			<% Usuario u = (Usuario) request.getSession().getAttribute("usuario"); %>
+			<% 
+				Usuario u = (Usuario) request.getSession().getAttribute("usuario"); 
 			
-			<table class="table center" border="1">
-		
-			<%
-				Solicitacao s = u.getSolitacao(); 
-			
-				out.print("<tr>");
-				out.print("<td>"+s.toString()+"</td>");
-				out.print("</tr>");
-				
+				Solicitacao s = u.getSolitacao(); 		
+								
 				if(s.getStatus() == Status.APROVADO) {
 					//TODO link ou botao imprimir
 				}
+				
+				String segmento = (String)request.getSession().getAttribute("segmento");
 			%>
+
+			<table class="table center" border="1">
+				
+				<tr>
+					<td><strong>	Nome</strong></td>
+					<td colspan="3"> <%= u.getNome() %> </td>
+				</tr>
+				<tr>
+					<td><strong>	Segmento	</strong></td>				
+					<td>			<%= segmento %>		</td>
+					<td><strong>	Campus		</strong></td>			
+					<td>			<%= u.getCampus() %>	</td>
+				</tr>
+				<tr>
+					<td><strong>	CPF			</strong></td>				
+					<td>			<%= u.getCpf() %>		</td>
+					<td><strong>	Setor		</strong></td>			
+					<td>			<%= u.getSetor() %>	</td>
+				</tr>
+				<tr>
+					<%
+					System.out.println("Segmento: " + segmento);
+						if(!segmento.equals("Aposentado") && !segmento.equals("Prestador de Serviço-Terceirizado")){
+							System.out.println("Entrou");
+						
+					%>
+					
+					<td><strong>Matricula / SIAPE</strong></td>				
+					<td><%= u.autenticacao() %></td>
+					
+					<%
+					}%>
+					<td><strong>Data de Admissão</strong></td>	
+					<td>			<%= u.getDataAdmissao() %>	</td>
+				</tr>
+				<tr>
+					<td><strong>	Celular		</strong></td>				
+					<td>			<%= u.getCelular() %>	</td>
+					<td><strong>	Email		</strong></td>	
+					<td>		<%= u.getEmail() %>	</td>
+				</tr>
+				
+			</table>
+			
+			
+			
+			<table class="table center" border="1">
+		
+			
 		
 			</table>
 
