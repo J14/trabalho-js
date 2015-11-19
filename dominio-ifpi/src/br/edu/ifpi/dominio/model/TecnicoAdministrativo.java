@@ -38,5 +38,10 @@ public class TecnicoAdministrativo extends Usuario{
 		return "TecnicoAdministrativo [siape=" + siape + ", toString()="
 				+ super.toString() + "]";
 	}
+
+	@Override
+	public String getNomeSegmento() {
+		return "Técnico Administrativo";
+	}
 	
 }

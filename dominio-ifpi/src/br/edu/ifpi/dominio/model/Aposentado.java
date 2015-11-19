@@ -21,5 +21,10 @@ public class Aposentado extends Usuario{
 	public Object autenticacao() {
 		return super.getCpf();
 	}
+
+	@Override
+	public String getNomeSegmento() {
+		return "Aposentado";
+	}
 	
 }

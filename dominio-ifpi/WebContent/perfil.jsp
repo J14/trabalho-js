@@ -27,11 +27,9 @@
 			
 				Solicitacao s = u.getSolitacao(); 		
 								
-				if(s.getStatus() == Status.APROVADO) {
-					//TODO link ou botao imprimir
-				}
 				
-				String segmento = (String)request.getSession().getAttribute("segmento");
+				//String segmento = (String)request.getSession().getAttribute("segmento");
+				String segmento = u.getNomeSegmento();
 			%>
 
 			<table class="table center" border="1">
@@ -54,9 +52,7 @@
 				</tr>
 				<tr>
 					<%
-					System.out.println("Segmento: " + segmento);
 						if(!segmento.equals("Aposentado") && !segmento.equals("Prestador de Serviço-Terceirizado")){
-							System.out.println("Entrou");
 						
 					%>
 					
@@ -78,12 +74,17 @@
 			</table>
 			
 			
+			<form action="ServletLogout" method="get">
+				<input type="submit" value="sair">		
+			</form>
 			
-			<table class="table center" border="1">
-		
+			<%
 			
-		
-			</table>
+				if(s.getStatus() == Status.APROVADO) {
+					out.print("<a href=\"imprimir.jsp\">Imprimir</a>");
+				}
+				
+			%>
 
 		</div>
 

@@ -38,5 +38,10 @@ public class Admin extends Usuario{
 		return "Admin [siape=" + siape + ", toString()=" + super.toString()
 				+ "]";
 	}
+
+	@Override
+	public String getNomeSegmento() {
+		return "Administrador";
+	}
 	
 }

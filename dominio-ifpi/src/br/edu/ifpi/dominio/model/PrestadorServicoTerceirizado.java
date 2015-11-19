@@ -21,6 +21,11 @@ public class PrestadorServicoTerceirizado extends Usuario{
 	public Object autenticacao() {
 		return super.getCpf();
 	}
+
+	@Override
+	public String getNomeSegmento() {
+		return "Prestador de Serviço-Terceirizado";
+	}
 	
 	
 

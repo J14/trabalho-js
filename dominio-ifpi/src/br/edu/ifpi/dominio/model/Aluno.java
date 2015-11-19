@@ -38,6 +38,11 @@ public class Aluno extends Usuario{
 		return "Aluno [matricula=" + matricula + ", toString()="
 				+ super.toString() + "]";
 	}
+
+	@Override
+	public String getNomeSegmento() {
+		return "Aluno";
+	}
 	
 	
 

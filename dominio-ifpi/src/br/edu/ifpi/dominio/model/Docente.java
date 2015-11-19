@@ -38,6 +38,11 @@ public class Docente extends Usuario{
 		return "Docente [siape=" + siape + ", toString()=" + super.toString()
 				+ "]";
 	}
+
+	@Override
+	public String getNomeSegmento() {
+		return "Docente";
+	}
 	
 	
 

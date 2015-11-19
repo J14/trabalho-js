@@ -133,6 +133,8 @@ public abstract class Usuario {
 	public void setSolitacao(Solicitacao solitacao) {
 		this.solitacao = solitacao;
 	}
+	
+	public abstract String getNomeSegmento();
 
 	public abstract Object autenticacao();
 
