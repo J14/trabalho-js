@@ -43,7 +43,8 @@ public class FilterCadastro implements Filter {
 		Usuario u = new UsuarioDAO().isCadastrado(ident, senha);
 		
 		if (u == null) {
-			((HttpServletResponse) response).sendRedirect("index.jsp");
+			request.setAttribute("msg", true);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} else {
 			request.setAttribute("usuario", u);
 			chain.doFilter(request, response);

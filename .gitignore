@@ -21,3 +21,5 @@ Servers/
 .settings/
 
 RemoteSystemsTempFiles/
+dominio-ifpi/src/META-INF/persistence.xml
+dominio-ifpi/src/META-INF/persistence.xml

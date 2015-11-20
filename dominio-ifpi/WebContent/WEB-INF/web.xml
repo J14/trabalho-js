@@ -59,4 +59,14 @@
     <servlet-name>ServletStatusSolicitacao</servlet-name>
     <url-pattern>/ServletStatusSolicitacao</url-pattern>
   </servlet-mapping>
+  <!-- 
+  
+  Mapeamento das páginas de erro:
+  
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>../index.jsp</location> 
+  </error-page>
+   -->
 </web-app>

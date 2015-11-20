@@ -20,14 +20,27 @@
 			</div>
 			
 			<div class="form center">
+			
+				
 				<form action="ServletIdentificaUsuario" method="post">
-					<input type="text" placeholder="Identificador" name="ident" 
-					title="Seu identificador pode ser sua matrícula, CPF ou SIAPE. Caso não seja cadastrado, faça um cadastro logo abaixo.">
+					<div class="title">
+						<input type="text" placeholder="Identificador" name="ident" class="input-title"/>
+						<span>Matricula ou SIAPE</span>
+					</div>
 
-					<br>
-					<input type="password" placeholder="Senha" name="senha" title="Digite a senha que você cadastrou.">
-
+					
+					<div class="title">
+						<input type="password" placeholder="Senha" name="senha">
+						<span>A senha que você cadastrou</span>
+					</div>
+					
 					<input type="submit" value="Entrar" class="btn"/>
+					
+					<%if(request.getAttribute("msg") != null){ %>
+						<span class="error">
+							Desculpe. Não encontramos esse usuário.				
+						</span>
+					<%} %>
 				</form>
 			</div>
 		</div>
@@ -41,29 +54,72 @@
 			<div class="form center">
 				
 				<form action="ServletCadastraUsuario" method="post">
-					<input type="text" placeholder="Nome" name="nome" title="Nome completo"/>
-
-					<select id="segmento" title="Segmento" name="segmento">
-						<option >Segmento...</option>
-						<option id="aluno" value="aluno">Aluno</option>
-						<option value="docente">Docente</option>
-						<option value="aposentado">Aposentado</option>
-						<option value="TecAdmin">Técnico-Administrativo</option>
-						<option value="presServTerc">Prestador de Serviço-Terceirizado</option>					 
-					</select>
-
-					<input type="text" placeholder="Matricula/SIAPE" name="matriculaSiape"/>
-
-					<input type="text" placeholder="Campus" name="campus" title="Precisamos saber onde você estuda ou trabalha."/>
-					<input type="text" placeholder="Setor" name="setor"/>
-					<input type="text" placeholder="CPF" name="cpf" 
-					title="Não se preocupe. Seu cpf não será divulgado."/>
-
-					<input type="text" placeholder="Data de Admissão" name="dataAdmissao"/>
-					<input type="text" placeholder="Telefone" name="celular"/>
-					<input type="text" placeholder="E-mail" name="email"/>
-					<input type="password" placeholder="Senha" name="senha" />
-
+				
+					<div class="title">
+						<input type="text" placeholder="Nome" name="nome"/>
+						<span>Digite seu nome completo</span>
+					</div>
+					
+					
+					<div class="title">
+						<select id="segmento" name="segmento">
+							<option >Segmento...</option>
+							<option id="aluno" value="aluno">Aluno</option>
+							<option value="docente">Docente</option>
+							<option value="aposentado">Aposentado</option>
+							<option value="TecAdmin">Técnico-Administrativo</option>
+							<option value="presServTerc">Prestador de Serviço-Terceirizado</option>					 
+						</select>
+						<span>Segmento</span>
+					</div>
+					
+					<div class="title">
+						<input type="text" placeholder="Matricula/SIAPE" name="matriculaSiape"/>
+						<span>Somente se for Aluno ou Servidor</span>
+					</div>
+					
+					
+					<div class="title">
+						<input type="text" placeholder="Campus" name="campus"/>
+						<span>Onde você estuda/trabalha?</span>
+					</div>
+					
+					<div class="title">
+						<input type="text" placeholder="Setor" name="setor"/>
+						<span>Qual o setor?</span>
+					</div>
+					
+					<div class="title">
+						<input type="text" placeholder="CPF" name="cpf"/>
+						<span>Não se preocupe. Seu CPF não será divulgado.</span>
+					</div>
+					
+					<div class="title">
+						<input type="text" placeholder="Data de Admissão" name="dataAdmissao"/>
+						<span>Fomato: <strong>DD/MM/AAAA</strong></span>
+					</div>
+					
+					<div class="title">
+						<input type="text" placeholder="Telefone" name="celular" />
+						<span>Fomato: <strong>DD/MM/AAAA</strong></span>
+					</div>
+					
+					<div class="title">
+						<input type="text" placeholder="E-mail" name="email" title=""/>
+						<span>Entraremos em contato com você.</span>
+					</div>
+					
+					<div class="title">
+						<input type="password" placeholder="Senha" name="senha" />
+						<span>Senha para login posterior</span>
+					</div>				
+					
+					
+					
+					
+					
+					
+					<br/>
 					<input type="submit" value="Pedir Domínio" class="btn" id="btn"/>
 				</form>
 			</div>

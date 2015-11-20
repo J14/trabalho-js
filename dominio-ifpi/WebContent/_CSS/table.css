@@ -1,0 +1,48 @@
+@font-face {
+	font-family: "Montserrat";
+	src: url("_font/Montserrat-Regular.otf");
+}
+
+table{	
+  background-color: transparent;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 90%;
+	margin-bottom: 20px;
+	font-family: 'Montserrat', sans-serif;
+  font-size: 9pt;
+}
+
+td{vertical-align: middle;}
+tr.success td {
+  background-color: #C2FBAB;
+}
+
+.table tr.error td {
+  background-color: #FDB4B4;
+}
+
+label,
+input,
+button,
+select,
+textarea {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+}
+
+
+table td {
+  padding: 5px;
+  line-height: 30px;
+  text-align: left;
+  vertical-align: top;
+  border-right: 1px;
+  
+}
+
+
+
+
+

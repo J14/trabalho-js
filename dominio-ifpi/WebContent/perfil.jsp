@@ -9,19 +9,20 @@
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Meu Perfil</title>
-	<link rel="stylesheet" href="_CSS/table-perfil.css">
+	
 	<link rel="stylesheet" href="_CSS/template.css">
+	<link rel="stylesheet" href="_CSS/table-perfil.css">
 	<script src="_JS/adm.js"></script>
+	<!--[if IE]><link rel="shortcut icon" href="_IMG/favicon.ico"><![endif]-->
+	<link rel="icon" href="_IMG/favicon.ico">
 
 </head>
 <body>
 
-
+ 
 	<div id="container">
 
 		<div id="perfil" class="center">
-			<h1 class="center">Minha Solicitação</h1>
-			
 			<% 
 				Usuario u = (Usuario) request.getSession().getAttribute("usuario"); 
 			
@@ -31,8 +32,14 @@
 				//String segmento = (String)request.getSession().getAttribute("segmento");
 				String segmento = u.getNomeSegmento();
 			%>
-
-			<table class="table center" border="1">
+		
+		
+		
+			<h1 class="center">Meu Perfil</h1>
+			<p>Esta é a sua solicitação de domínio.</p>			
+			
+			<br/><br/>
+			<table class="center" border="1">
 				
 				<tr>
 					<td><strong>	Nome</strong></td>
@@ -72,19 +79,40 @@
 				</tr>
 				
 			</table>
+			<br/><br/>
 			
 			
-			<form action="ServletLogout" method="get">
-				<input type="submit" value="sair">		
-			</form>
-			
-			<%
-			
-				if(s.getStatus() == Status.APROVADO) {
-					out.print("<a href=\"imprimir.jsp\">Imprimir</a>");
+						
+			<%  //if(s.getStatus() == Status.APROVADO) {
+				//out.print("<a href=\"imprimir.jsp\"  class=\"btn-defaut\">Imprimir</a>");	
+		
+				switch(s.getStatus()){
+					case APROVADO:
+						out.print("<div class=\"acepted-request\">"
+							+"Parabéns! Sua solicitação foi aprovada! <br/>"
+							+"Agora, basta imprimir e levar no CTI do seu campus!<br/>"
+							+"<br/><br/><a href=\"imprimir.jsp\"  class=\"btn-defaut\">Imprimir</a>"
+							+ "</div>");
+						break;
+						
+					case REPROVADO:
+						out.print(" <div class=\"denied-request\">" 
+								+ "Desculpe! Sua solicitação não foi aceita! <br/>"
+								+ "A vida prega algumas peças na vida da gente. <br/>Acostume-se.<br/></div>");
+						break;
+						
+					case PENDENTE:
+						out.print(" <div class=\"acepted-request\">"
+								+ "Pronto! Agora é só esperar ! <br/>"
+								+ "Um administrador vai analisar sua solicitação.<br/>"
+								+ "Venha sempre aqui para saber das novidades.</div>");
+						break;			
 				}
-				
+						
 			%>
+							
+			<br/><br/>
+			<a href="ServletLogout" class="btn-defaut">Sair</a> 
 
 		</div>
 
