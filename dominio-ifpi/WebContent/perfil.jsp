@@ -58,16 +58,16 @@
 					<td>			<%= u.getSetor() %>	</td>
 				</tr>
 				<tr>
+					<td><strong>Matricula / SIAPE</strong></td>	
 					<%
-						if(!segmento.equals("Aposentado") && !segmento.equals("Prestador de Serviço-Terceirizado")){
-						
-					%>
+						/* A matrícula ou SIAPE só será exibida quando o usuário não for aposentado nem terceirizado. */
+						if(!segmento.equals("Aposentado") && !segmento.equals("Prestador de Serviço-Terceirizado")){						
+					%>							
+						<td><%= u.autenticacao() %></td>
 					
-					<td><strong>Matricula / SIAPE</strong></td>				
-					<td><%= u.autenticacao() %></td>
-					
-					<%
-					}%>
+					<%}else{%>					
+						<td>---</td>
+					<%} %>
 					<td><strong>Data de Admissão</strong></td>	
 					<td>			<%= u.getDataAdmissao() %>	</td>
 				</tr>

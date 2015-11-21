@@ -1,0 +1,92 @@
+@font-face {
+	font-family: "KGSecondChances";
+	src: url("_font/KGSecondChancesSketch.ttf");
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("_font/Montserrat-Regular.otf");
+}
+
+
+
+table {
+	margin: auto;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+table td {
+	padding: 10px 10px 10px 30px;
+}
+
+td.title {
+	text-align: right;
+}
+
+td.infor {
+	width: 320px;
+	text-align: left;
+	padding: 10px 30px 10px 10px;
+}
+
+p {
+	max-width: 650px;
+	margin: auto;
+	font-size: 11pt;
+}
+
+td {
+	border: 1px solid black;
+	margin: 0;
+}
+
+body {
+	font-family: sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+div#container {
+	width: 100%;
+	text-align: center;
+}
+
+div#box, div#header {
+	width: 900px;
+	margin: auto;
+	padding: 30px;
+}
+/* Popup*/
+div#popup {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .9);
+	position: absolute;
+	padding-top: 40px;
+	color: white;
+	text-align: center;
+}
+
+div#popup h1, div#popup h3 {
+	font-family: "KGSecondChances", sans-serif;
+}
+
+h1{font-size: 30pt;}
+
+div#popup p {
+	font-family: 'Montserrat', sans-serif; background: rgba(0, 0, 0, .5); padding: 50px;
+}
+	
+	
+a, a.btn-defaut{
+	margin: 3px;
+	text-decoration: none;
+	color: white;			
+	padding: 7px 20px;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+}
+
+a.btn-defaut{background: green; border: 1px solid green;transition: all linear .3s;}
+a.btn-defaut:hover{background: white; color: green;}

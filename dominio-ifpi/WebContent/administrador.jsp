@@ -35,9 +35,9 @@
 				
 			}else{
 				out.print("<div class=\"administrator-request\">"
-						+  "Temos aqui alguma solicitações pendentes.<br/> "
+						+  "Temos aqui algumas solicitações pendentes.<br/> "
 						+ "Pedimos que pense bem antes de clicar em 'Recusar'.<br/>"
-						+ "Você pode partir o coração de alguém.</div>");
+						+ "Quem pede um domínio, só pede uma vez.</div>");
 				
 				
 				
