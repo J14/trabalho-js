@@ -1,7 +1,6 @@
 package br.edu.ifpi.dominio.servlet;
 
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -54,60 +53,72 @@ public class ServletCadastraUsuario extends HttpServlet {
 		senha = request.getParameter("senha");
 		
 		switch (segmento) {
-		case "aluno":
-			u = new Aluno();
-			((Aluno) u).setMatricula(matriculaSiape);
-			request.getSession().setAttribute("segmento", "Aluno");
-			break;
-		case "aposentado":
-			u = new Aposentado();
-			request.getSession().setAttribute("segmento", "Aposentado");
-			break;
-		case "presServTerc":
-			u = new PrestadorServicoTerceirizado();
-			request.getSession().setAttribute("segmento", "Prestador de Serviço-Terceirizado");
-			break;
-		case "docente":
-			u = new Docente();
-			((Docente) u).setSiape(matriculaSiape);
-			request.getSession().setAttribute("segmento", "Docente");
-			break;
-		case "TecAdmin":
-			u = new TecnicoAdministrativo();
-			((TecnicoAdministrativo) u).setSiape(matriculaSiape);
-			request.getSession().setAttribute("segmento", "Tecnico Administrativo");
-			break;
-		default:
-			break;
+			case "aluno":
+				u = new Aluno();
+				((Aluno) u).setMatricula(matriculaSiape);
+				request.getSession().setAttribute("segmento", "Aluno");
+				break;
+			case "aposentado":
+				u = new Aposentado();
+				request.getSession().setAttribute("segmento", "Aposentado");
+				break;
+			case "presServTerc":
+				u = new PrestadorServicoTerceirizado();
+				request.getSession().setAttribute("segmento", "Prestador de Serviço-Terceirizado");
+				break;
+			case "docente":
+				u = new Docente();
+				((Docente) u).setSiape(matriculaSiape);
+				request.getSession().setAttribute("segmento", "Docente");
+				break;
+			case "TecAdmin":
+				u = new TecnicoAdministrativo();
+				((TecnicoAdministrativo) u).setSiape(matriculaSiape);
+				request.getSession().setAttribute("segmento", "Tecnico Administrativo");
+				break;
+			default:
+				break;
 		}
 		
-		u.setNome(nome);
-		u.setCampus(campus);
-		u.setSetor(setor);
-		u.setCpf(cpf);
-		//FIXME tipo Calendar
-		//u.setDataAdmissao(null);
-		
-		SimpleDateFormat formataData = new SimpleDateFormat("dd/MM/yyyy");
 		try {
-			u.setDataAdmissao(formataData.parse(dataAdmissao));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			u.setNome(nome);
+			u.setCampus(campus);
+			u.setSetor(setor);
+			u.setCpf(cpf);
+			//FIXME tipo Calendar
+			//u.setDataAdmissao(null);
+			
+			SimpleDateFormat formataData = new SimpleDateFormat("dd/MM/yyyy");
+			try {
+				u.setDataAdmissao(formataData.parse(dataAdmissao));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			u.setCelular(celular);
+			u.setEmail(email);
+			u.setSenha(senha);
+			
+			EntityTransaction et = JPAUtil.getTransaction();
+			
+			et.begin();
+			dao.inserir(u);
+			et.commit();
+			
+			request.getSession().setAttribute("cadastrado", true);
+			request.getSession().setAttribute("usuario", u);
+			response.sendRedirect("ServletCriarSolicitacao");
+			
+			
+		} catch (Exception e) {
+			request.getSession().setAttribute("msg-cadastro", true);
+			response.sendRedirect("index.jsp#down");
+			//request.getRequestDispatcher("index.jsp#down").forward(request, response);
 		}
 		
-		u.setCelular(celular);
-		u.setEmail(email);
-		u.setSenha(senha);
 		
-		EntityTransaction et = JPAUtil.getTransaction();
 		
-		et.begin();
-		dao.inserir(u);
-		et.commit();
-		
-		request.getSession().setAttribute("usuario", u);
-		response.sendRedirect("ServletCriarSolicitacao");
 	}
 
 }

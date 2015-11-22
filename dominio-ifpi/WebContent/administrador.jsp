@@ -139,7 +139,7 @@
 				<%} %>
 			</table>
 			<br/><br/>
-			<a href="index.jsp" class="btn-defaut">Sair</a>
+			<a href="ServletLogout" class="btn-defaut">Sair</a>
 				
 			
 		</div>  

@@ -8,19 +8,20 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import br.edu.ifpi.dominio.dao.UsuarioDAO;
 import br.edu.ifpi.dominio.model.Usuario;
 
 /**
- * Servlet Filter implementation class FilterCadastro
+ * Servlet Filter implementation class FilterLogado
  */
-public class FilterCadastro implements Filter {
+public class FilterLogado implements Filter {
 
     /**
      * Default constructor. 
      */
-    public FilterCadastro() {
+    public FilterLogado() {
         // TODO Auto-generated constructor stub
     }
 
@@ -38,20 +39,12 @@ public class FilterCadastro implements Filter {
 		
 		
 		
+		Usuario u =  (Usuario)((HttpServletRequest) request).getSession().getAttribute("usuario");
 		
-		String ident = request.getParameter("ident");
-		String senha = request.getParameter("senha");
-		
-		Usuario u = new UsuarioDAO().isCadastrado(ident, senha);
-		
-		
-		if (u == null) {			
-			request.setAttribute("msg-login", true);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		} else {			
-			request.setAttribute("usuario", u);			
+		if(u != null)
 			chain.doFilter(request, response);
-		}
+		else
+			((HttpServletResponse) response).sendRedirect("danadinho.jsp");
 	}
 
 	/**
@@ -60,5 +53,7 @@ public class FilterCadastro implements Filter {
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
 	}
+
+	
 
 }

@@ -30,9 +30,10 @@ public class ServletIdentificaUsuario extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Usuario u = (Usuario) request.getAttribute("usuario");
-		
+		Usuario u = (Usuario) request.getAttribute("usuario");		
+
 		HttpSession session = request.getSession();
+		
 		session.setAttribute("usuario", u);
 		
 		if (u instanceof Admin) {
