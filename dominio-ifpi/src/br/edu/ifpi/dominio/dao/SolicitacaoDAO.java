@@ -8,11 +8,15 @@ import javax.persistence.EntityManager;
 
 import br.edu.ifpi.dominio.model.Solicitacao;
 import br.edu.ifpi.dominio.model.Status;
-import br.edu.ifpi.dominio.util.JPAUtil;
 
 public class SolicitacaoDAO implements GenericDAO<Solicitacao>{
 
-	private EntityManager em = JPAUtil.getEntityManager();
+	//private EntityManager em = JPAUtil.getEntityManager();
+	private EntityManager em;
+	
+	public SolicitacaoDAO(EntityManager em) {
+		this.em = em;
+	}
 	
 	public void inserir(Solicitacao e) {
 		em.persist(e);
