@@ -41,7 +41,8 @@
 							Desculpe. Não encontramos esse usuário.				
 						</span>
 					<%} %> --%>
-					<%if(request.getSession().getAttribute("msg-login") != null){ %>
+					<%if(request.getSession().getAttribute("msg-login") != null){
+						request.getSession().setAttribute("msg-login", null);%>
 						<span class="error">
 							Desculpe. Não encontramos esse usuário.				
 						</span>
