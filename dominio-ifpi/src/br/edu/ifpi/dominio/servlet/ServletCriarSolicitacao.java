@@ -1,8 +1,6 @@
 package br.edu.ifpi.dominio.servlet;
 
 import java.io.IOException;
-import java.util.Calendar;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.servlet.ServletException;
@@ -15,7 +13,6 @@ import br.edu.ifpi.dominio.dao.SolicitacaoDAO;
 import br.edu.ifpi.dominio.model.Solicitacao;
 import br.edu.ifpi.dominio.model.Status;
 import br.edu.ifpi.dominio.model.Usuario;
-import br.edu.ifpi.dominio.util.JPAUtil;
 
 /**
  * Servlet implementation class ServletCriarSolicitacao

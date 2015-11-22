@@ -18,7 +18,6 @@ import br.edu.ifpi.dominio.model.Docente;
 import br.edu.ifpi.dominio.model.PrestadorServicoTerceirizado;
 import br.edu.ifpi.dominio.model.TecnicoAdministrativo;
 import br.edu.ifpi.dominio.model.Usuario;
-import br.edu.ifpi.dominio.util.JPAUtil;
 
 /**
  * Servlet implementation class ServletCadastraUsuario

@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import br.edu.ifpi.dominio.dao.SolicitacaoDAO;
 import br.edu.ifpi.dominio.model.Solicitacao;
 import br.edu.ifpi.dominio.model.Status;
-import br.edu.ifpi.dominio.util.JPAUtil;
 
 /**
  * Servlet implementation class ServletStatusSolicitacao
