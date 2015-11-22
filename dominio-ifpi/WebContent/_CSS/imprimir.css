@@ -64,9 +64,13 @@ div#popup {
 	background: rgba(0, 0, 0, .9);
 	position: absolute;
 	padding-top: 40px;
+	padding-bottom: -40px;
 	color: white;
 	text-align: center;
+	overflow: auto;
 }
+
+p#mozila-navigator{display: none;} 
 
 div#popup h1, div#popup h3 {
 	font-family: "KGSecondChances", sans-serif;
@@ -77,6 +81,8 @@ h1{font-size: 30pt;}
 div#popup p {
 	font-family: 'Montserrat', sans-serif; background: rgba(0, 0, 0, .5); padding: 50px;
 }
+
+
 	
 	
 a, a.btn-defaut{

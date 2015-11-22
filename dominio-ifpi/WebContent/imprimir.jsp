@@ -22,7 +22,7 @@
 		<h1>Calma...</h1>
 		<h3>Estamos quase lá.</h3>
 		<br><br><br>
-		<p>
+		<p id="other-navigator">
 			Nosso software já gerou seu documento de solicitação. <br>
 			Quando imprimir, lembre-se de anexar uma cópia do seu RG. <br>
 			<br><br>
@@ -31,8 +31,28 @@
 
 			Seja Feliz!
 		</p>
-		<br><br><br>
-		<a href="#" id="close-popup" class="btn-defaut">Ok, entendi</a>
+		<p id="mozila-navigator">
+			<span style="color: red;">Atenção:</span><br/><br/>
+			Não imprima no Mozila Firefox. Tente em outro navegador se possível.<br/>
+			Se não tiver outra opçao, siga os passos a seguir:
+			<br><br><br>
+			<span style="color: green;">1º Passo:</span><br/>
+			Clique no menu superior direito:<br/><br/>
+			<img src="_IMG/1-passo.png"/>
+			
+			<br><br><br>
+			<span style="color: green;">2º Passo:</span><br/>
+			Clique na opção 'Imprimir':<br/><br/>
+			<img src="_IMG/2-passo.png"/>
+			
+			
+			<br><br><br>
+			<span style="color: green;">2º Passo:</span><br/>
+			Na opção 'escala' escolha '60%':<br/><br/>
+			<img src="_IMG/3-passo.png"/>
+		</p>		
+		
+		<p style="margin-bottom: 40px;"><a href="#" id="close-popup" class="btn-defaut">Ok, entendi</a></p>
 	</div>
 	<div id="container">
 		<div id="header">
