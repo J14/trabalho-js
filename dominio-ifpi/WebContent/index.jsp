@@ -36,7 +36,12 @@
 					
 					<input type="submit" value="Entrar" class="btn"/>
 					
-					<%if(request.getAttribute("msg-login") != null){ %>
+					<%-- <%if(request.getAttribute("msg-login") != null){ %>
+						<span class="error">
+							Desculpe. Não encontramos esse usuário.				
+						</span>
+					<%} %> --%>
+					<%if(request.getSession().getAttribute("msg-login") != null){ %>
 						<span class="error">
 							Desculpe. Não encontramos esse usuário.				
 						</span>

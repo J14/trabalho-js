@@ -5,6 +5,8 @@
 <%@ page import="br.edu.ifpi.dominio.model.*" %>
 <%@ page import="br.edu.ifpi.dominio.dao.*" %>
 <%@ page import="java.util.*" %>
+<%@ page import="javax.persistence.EntityManager" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,7 +25,14 @@
 
 
 	
-		<% List<Solicitacao> pendentes = new SolicitacaoDAO().pendentes(); %>
+		<% 
+			
+			EntityManager em = (EntityManager) getServletContext().getAttribute("em");
+		
+			List<Solicitacao> pendentes = new SolicitacaoDAO(em).pendentes(); 
+		
+		%>
+		
 		<div id="adm" class="center">
 			<h1>Solicitações</h1>
 			<p>Bem vindo, Administrador</p>

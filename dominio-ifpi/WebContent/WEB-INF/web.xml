@@ -78,4 +78,14 @@
     <url-pattern>/perfil.jsp</url-pattern>
     <url-pattern>/imprimir.jsp</url-pattern>
   </filter-mapping>
+  <listener>
+    <listener-class>br.edu.ifpi.dominio.listener.ListenerSession</listener-class>
+  </listener>
+  <context-param>
+    <param-name>persistenceUnitName</param-name>
+    <param-value>dominio-ifpi</param-value>
+  </context-param>
+  <listener>
+    <listener-class>br.edu.ifpi.dominio.listener.ListenerContext</listener-class>
+  </listener>
 </web-app>
