@@ -2,6 +2,7 @@ package br.edu.ifpi.dominio.servlet;
 
 import java.io.IOException;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -41,15 +42,17 @@ public class ServletStatusSolicitacao extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		EntityManager em = (EntityManager) getServletContext().getAttribute("em");
+		
 		String botao = request.getParameter("botao");
 		
-		SolicitacaoDAO dao = new SolicitacaoDAO();
+		SolicitacaoDAO dao = new SolicitacaoDAO(em);
 		
 		Long id = Long.parseLong(request.getParameter("id"));
 		
 		Solicitacao s;
 		
-		EntityTransaction et = JPAUtil.getTransaction();
+		EntityTransaction et = em.getTransaction();
 		
 		et.begin();
 		s = dao.pesquisar(id);

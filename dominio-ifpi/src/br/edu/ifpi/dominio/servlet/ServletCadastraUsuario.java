@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -37,9 +38,12 @@ public class ServletCadastraUsuario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		EntityManager em = (EntityManager) getServletContext().getAttribute("em");
+		
 		String nome, campus, setor, segmento, cpf, dataAdmissao, celular, email, senha, matriculaSiape;
 		Usuario u = null;
-		UsuarioDAO dao = new UsuarioDAO();
+		UsuarioDAO dao = new UsuarioDAO(em);
 		
 		nome = request.getParameter("nome");
 		campus = request.getParameter("campus");
@@ -100,7 +104,7 @@ public class ServletCadastraUsuario extends HttpServlet {
 			u.setEmail(email);
 			u.setSenha(senha);
 			
-			EntityTransaction et = JPAUtil.getTransaction();
+			EntityTransaction et = em.getTransaction();
 			
 			et.begin();
 			dao.inserir(u);

@@ -3,6 +3,7 @@ package br.edu.ifpi.dominio.servlet;
 import java.io.IOException;
 import java.util.Calendar;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,13 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.edu.ifpi.dominio.dao.SolicitacaoDAO;
-import br.edu.ifpi.dominio.model.Aluno;
-import br.edu.ifpi.dominio.model.Aposentado;
-import br.edu.ifpi.dominio.model.Docente;
-import br.edu.ifpi.dominio.model.PrestadorServicoTerceirizado;
 import br.edu.ifpi.dominio.model.Solicitacao;
 import br.edu.ifpi.dominio.model.Status;
-import br.edu.ifpi.dominio.model.TecnicoAdministrativo;
 import br.edu.ifpi.dominio.model.Usuario;
 import br.edu.ifpi.dominio.util.JPAUtil;
 
@@ -47,11 +43,13 @@ public class ServletCriarSolicitacao extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		EntityManager em = (EntityManager) getServletContext().getAttribute("em");
+		
 		HttpSession session = request.getSession();
 		
 		Usuario u = (Usuario) session.getAttribute("usuario");
 		
-		SolicitacaoDAO dao = new SolicitacaoDAO();
+		SolicitacaoDAO dao = new SolicitacaoDAO(em);
 		
 		Solicitacao s = new Solicitacao();
 		
@@ -60,12 +58,12 @@ public class ServletCriarSolicitacao extends HttpServlet {
 		//FIXME tipo Calendar
 		//s.setContaCriada(null);
 		
-		Calendar c = Calendar.getInstance();
-		s.setContaCriada(c.getTime());
+		/*Calendar c = Calendar.getInstance();
+		s.setContaCriada(c.getTime());*/
 		
 		u.setSolitacao(s);
 		
-		EntityTransaction et = JPAUtil.getTransaction();
+		EntityTransaction et = em.getTransaction();
 		
 		et.begin();
 		dao.inserir(s);
