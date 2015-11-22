@@ -1,5 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+<?xml version="1.0" encoding="UTF-8"?>  
+<web-app 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+	id="WebApp_ID" version="2.5">	  
+ 
+  
   <servlet>
     <description></description>
     <display-name>ServletIdentificaUsuario</display-name>
@@ -17,7 +24,7 @@
   </filter>
   <filter-mapping>
     <filter-name>FilterCadastro</filter-name>
-    <url-pattern>/ServletIdentificaUsuario</url-pattern>
+    <url-pattern>/ServletIdentificaUsuario</url-pattern>    
   </filter-mapping>
   <servlet>
     <description></description>
@@ -61,12 +68,15 @@
   </servlet-mapping>
   <!-- 
   
-  Mapeamento das páginas de erro:
+  Mapeamento das páginas de erro:  
   
-  
-  <error-page>
-  	<error-code>404</error-code>
-  	<location>../index.jsp</location> 
-  </error-page>
    -->
+   <error-page>  
+        <error-code>404</error-code>  
+        <location>/404error.jsp</location>
+        </error-page>  
+    <error-page>  
+        <error-code>500</error-code>  
+        <location>/500error.jsp</location>  
+    </error-page> 
 </web-app>

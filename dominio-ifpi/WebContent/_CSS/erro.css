@@ -1,0 +1,10 @@
+@font-face {
+	font-family: "KGSecondChances";
+	src: url("_font/KGSecondChancesSketch.ttf");
+}
+
+body{ background: #383838; text-align: center; }
+
+h1,p{color: white;}
+
+h1{font-family: "KGSecondChances", sans-serif; font-size: 120pt;}

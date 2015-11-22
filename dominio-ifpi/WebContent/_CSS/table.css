@@ -4,19 +4,23 @@
 }
 
 table{	
-  background-color: transparent;
+   background-color: transparent;
 	border-collapse: collapse;
 	border-spacing: 0;
-	width: 90%;
+	width: 100%;
 	margin-bottom: 20px;
 	font-family: 'Montserrat', sans-serif;
   font-size: 9pt;
 }
 
-td{vertical-align: middle;}
+
 tr.success td {
   background-color: #C2FBAB;
 }
+
+
+td.border-top{border-top: 1px solid #CCC;}
+td.line-button{text-align: right; border-bottom: 1px solid #CCC;}
 
 .table tr.error td {
   background-color: #FDB4B4;
@@ -37,10 +41,12 @@ table td {
   padding: 5px;
   line-height: 30px;
   text-align: left;
-  vertical-align: top;
+  vertical-align: middle;
   border-right: 1px;
   
 }
+
+
 
 
 

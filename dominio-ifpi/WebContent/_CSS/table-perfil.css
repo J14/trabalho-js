@@ -15,3 +15,13 @@ table {
 td{
 	padding: 10px;
 }
+
+
+td.left{text-align: right;}
+
+td.right{text-align: left;}
+
+
+table#identify{
+	margin: auto;
+}

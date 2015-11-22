@@ -97,8 +97,8 @@
 						
 					case REPROVADO:
 						out.print(" <div class=\"denied-request\">" 
-								+ "Desculpe! Sua solicitação não foi aceita! <br/>"
-								+ "A vida prega algumas peças na vida da gente. <br/>Acostume-se.<br/></div>");
+								+ "Más notícias! Sua solicitação não foi aceita! <br/>"
+								+ "Tente conversar pessoalmente com o diretor de TI. <br/>Boa Sorte!<br/></div>");
 						break;
 						
 					case PENDENTE:
@@ -110,7 +110,38 @@
 				}
 						
 			%>
-							
+			<br/><br/>
+				<div>
+					Leia com atenção: <br/><br/>
+					As informações do seu login são <span style="color: red;">pessoais e intransferíveis.</span> <br/>
+					Use essas informações para consultar sua solicitação posteriormente:
+					<br/><br/>
+					
+					<table id="identify">
+						<tr>
+							<td class="left">Identificador:</td>
+							<td class="right">
+								<span style="color:green">
+									<%
+										if(!segmento.equals("Aposentado") && !segmento.equals("Prestador de Serviço-Terceirizado")){out.print(u.autenticacao());}
+										else{out.print(u.getCpf());}
+									%>					
+								</span>
+							</td>						
+						</tr>
+						<tr>
+							<td class="left">Senha: </td>
+							<td class="right"><span style="color:green"><%=u.getSenha()%></span></td>						
+						</tr>
+					</table>
+					
+					
+					<br/>
+					
+					
+					
+					
+				</div>			
 			<br/><br/>
 			<a href="ServletLogout" class="btn-defaut">Sair</a> 
 

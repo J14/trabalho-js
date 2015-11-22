@@ -16,7 +16,7 @@
 		<div id="login">
 			<div class="header center">
 				<h1>Bem Vindo !</h1>
-				<p>Para ver sua solicitação, entre com seus dados.</p>
+				<p>Para ver sua solicitação, entre com seus dados.</p>				
 			</div>
 			
 			<div class="form center">
@@ -25,7 +25,7 @@
 				<form action="ServletIdentificaUsuario" method="post">
 					<div class="title">
 						<input type="text" placeholder="Identificador" name="ident" class="input-title"/>
-						<span>Matricula ou SIAPE</span>
+						<span>MATRÍCULA SIAPE ou CPF</span>
 					</div>
 
 					
@@ -36,7 +36,7 @@
 					
 					<input type="submit" value="Entrar" class="btn"/>
 					
-					<%if(request.getAttribute("msg") != null){ %>
+					<%if(request.getAttribute("msg-login") != null){ %>
 						<span class="error">
 							Desculpe. Não encontramos esse usuário.				
 						</span>
@@ -121,9 +121,21 @@
 					
 					<br/>
 					<input type="submit" value="Pedir Domínio" class="btn" id="btn"/>
+					<br/><br/>					
 				</form>
+				<section id="down">
+					<%
+						if(request.getSession().getAttribute("msg-cadastro") != null){ 
+							request.getSession().setAttribute("msg-cadastro", null);
+					%>
+						<span class="error">
+							Desculpe. Não conseguimos fazer seu cadastro.<br/>
+							Seria bom revisar seu formulário.
+						</span>					
+					<%} %>
+				</section>
 			</div>
-		</div>		
+		</div>
 	</div>
 	
 </body>

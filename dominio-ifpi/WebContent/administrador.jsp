@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="br.edu.ifpi.dominio.model.*" %>
 <%@ page import="br.edu.ifpi.dominio.dao.*" %>
 <%@ page import="java.util.*" %>
@@ -13,15 +15,15 @@
 	<link rel="stylesheet" href="_CSS/template.css">
 	<script src="_JS/adm.js"></script>
 	<!--[if IE]><link rel="shortcut icon" href="_IMG/favicon.ico"><![endif]-->
-	<link rel="icon" href="_IMG/favicon.ico">
-
+	<link rel="icon" href="_IMG/favicon.ico"/>
+	<style type="text/css">body{ background: #FFEBB6;}</style>
 </head>
 <body> 
 	
 
 
-	<div id="container">
-		<% List<Solicitacao> pendentes = new SolicitacaoDAO().pendentes();  %>
+	
+		<% List<Solicitacao> pendentes = new SolicitacaoDAO().pendentes(); %>
 		<div id="adm" class="center">
 			<h1>Solicitações</h1>
 			<p>Bem vindo, Administrador</p>
@@ -32,6 +34,9 @@
 							+  "Parabéns!<br/>"
 							+ "Nenhuma solicitação pendente.<br/>"
 							+ "Relaxe e tome um café.</div>");
+					
+					
+				
 				
 			}else{
 				out.print("<div class=\"administrator-request\">"
@@ -47,16 +52,16 @@
 		<br/><br/>
 			 <table class="table center">
 			 	<tr class="center">
-					<td class="center" width="200"><strong>Nome</strong></td>
-					<td><strong>Segmento</strong></td>
-					<td><strong>Campus</strong></td>
-					<td><strong>Setor</strong></td>
-					<td><strong>CPF</strong></td>
-					<td><strong>Matricula / SIAPE</strong></td>	
-					<td><strong>Data de Admissão</strong></td>
-					<td><strong>Celular</strong></td>
-					<td><strong>email</strong></td>
-					<td class="center"><strong>Decisão</strong></td>
+					<td class="center border-top" width="300"><strong>Nome</strong></td>
+					<td class="border-top center"><strong>Segmento</strong></td>
+					<td class="border-top center"><strong>Campus</strong></td>
+					<td class="border-top center"><strong>Setor</strong></td>
+					<td class="border-top center"><strong>CPF</strong></td>
+					<td class="border-top center"><strong>Matricula / SIAPE</strong></td>	
+					<td class="border-top center"><strong>Data de Admissão</strong></td>
+					<td class="border-top center"><strong>Celular</strong></td>
+					<td class="border-top center"><strong>Email</strong></td>
+					<!-- <td class="center"><strong>Decisão</strong></td> -->
 				</tr>
 				<%} %>
 				<%
@@ -78,38 +83,38 @@
 				
 				
 				<tr>
-					<td width="200"><%= pendente.getUsuario().getNome() %></td>
-					<td><%= pendente.getUsuario().getNomeSegmento() %>
-					<td><%= pendente.getUsuario().getCampus() %></td>
-					<td><%= pendente.getUsuario().getSetor() %></td>
-					<td><%= pendente.getUsuario().getCpf() %></td>
+					<td width="200" class="center"><%= pendente.getUsuario().getNome() %></td>
+					<td class="center" ><%= pendente.getUsuario().getNomeSegmento() %>
+					<td class="center" ><%= pendente.getUsuario().getCampus() %></td>
+					<td class="center" ><%= pendente.getUsuario().getSetor() %></td>
+					<td class="center" ><%= pendente.getUsuario().getCpf() %></td>
 					<%
 						String segmento = pendente.getUsuario().getNomeSegmento();	
-						if(!segmento.equals("Aposentado") && !segmento.equals("Prestador de Serviço-Terceirizado")){
-							System.out.println("Entrou");
-						
+						if(!segmento.equals("Aposentado") && !segmento.equals("Prestador de Serviço-Terceirizado")){						
 					%>
 								
-					<td><%= pendente.getUsuario().autenticacao() %></td>
+					<td class="center" ><%= pendente.getUsuario().autenticacao() %></td>
 					
 					<%} else {%>
 					
-					<td></td>
+						<td class="center" >---</td>
 					<%} %>
 					
-					<td><%= pendente.getUsuario().getDataAdmissao() %></td>
-					<td><%= pendente.getUsuario().getCelular() %></td>
-					<td><%= pendente.getUsuario().getEmail() %></td>
-					<td id="button" class="center">
-					
-						<!-- <form action="ServletStatusSolicitacao?">
-							<input type="submit" value="Aprovar" id="btn-aceitar" name="btn-aceitar"/>
-						</form>
+					<td class="center" >
+						<%
+							/*  Formatação da data de admissão  */			 
+							Date valorDoBanco = pendente.getUsuario().getDataAdmissao();
+						    String dataz = "dd/MM/yyyy";
+						    SimpleDateFormat formatas = new SimpleDateFormat(dataz );
+						    String data = formatas.format(valorDoBanco );
+						    out.print(data);					 
 						
-						<form action="ServletStatusSolicitacao?">
-							<input type="submit" value="Recusar" id="btn-recusar" name="btn-recusar"/>
-						</form> -->
-						
+						%>
+					</td>
+					<td class="center" ><%= pendente.getUsuario().getCelular() %></td>
+					<td class="center" ><%= pendente.getUsuario().getEmail() %></td>
+					<!-- 
+					<td id="button" class="center">						
 						<%
 							String urlAprovar = "ServletStatusSolicitacao?id=" + pendente.getId()+ "&botao=btn-aceitar";
 							String urlRecusar = "ServletStatusSolicitacao?id=" + pendente.getId()+ "&botao=btn-Recusar";
@@ -117,6 +122,16 @@
 						
 						<a href="<%= urlAprovar %>" class="btn-aceitar">Aprovar</a>
 						<a href="<%= urlRecusar %>" class="btn-recusar">Recusar</a>					
+					</td>
+					 -->
+				</tr>
+				<tr>					
+					<td class="line-button">
+							
+					</td>
+					<td colspan="8" class="line-button">
+						<a href="<%= urlAprovar %>" class="btn-aceitar">Aprovar</a>
+						<a href="<%= urlRecusar %>" class="btn-recusar">Recusar</a>
 					</td>
 				</tr>
 				
@@ -131,8 +146,8 @@
 
 
 
-	  </div>
-	</div>
+	  
+	
 
 </body>
 </html>
