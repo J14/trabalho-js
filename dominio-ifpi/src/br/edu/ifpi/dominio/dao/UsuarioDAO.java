@@ -36,7 +36,7 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
 		return em.createQuery(jql, Usuario.class).getResultList();
 	}
 	
-	public Usuario isCadastrado(String ident, String senha) {
+	public Usuario autenticacaoCadastrado(String ident, String senha) {
 		
 		List<Usuario> usuarios = pesquisar("SELECT u FROM Usuario u");
 		

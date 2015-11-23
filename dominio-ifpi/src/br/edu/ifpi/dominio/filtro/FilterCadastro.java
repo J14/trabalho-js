@@ -47,7 +47,7 @@ public class FilterCadastro implements Filter {
 		
 		EntityManager em = (EntityManager) request.getServletContext().getAttribute("em");
 		
-		Usuario u = new UsuarioDAO(em).isCadastrado(ident, senha);
+		Usuario u = new UsuarioDAO(em).autenticacaoCadastrado(ident, senha);
 		
 		
 		if (u == null) {			
