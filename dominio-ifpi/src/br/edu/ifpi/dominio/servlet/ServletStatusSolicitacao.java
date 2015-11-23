@@ -1,6 +1,7 @@
 package br.edu.ifpi.dominio.servlet;
 
 import java.io.IOException;
+import java.util.Calendar;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -59,6 +60,8 @@ public class ServletStatusSolicitacao extends HttpServlet {
 		
 		if(botao.equals("btn-aceitar")) {
 			s.setStatus(Status.APROVADO);
+			Calendar data = Calendar.getInstance();
+			s.setContaCriada(data.getTime());
 		} else {
 			s.setStatus(Status.REPROVADO);
 		}

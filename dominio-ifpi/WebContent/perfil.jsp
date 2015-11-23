@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="br.edu.ifpi.dominio.model.*" %>
@@ -68,8 +69,12 @@
 					<%}else{%>					
 						<td>---</td>
 					<%} %>
-					<td><strong>Data de Admissão</strong></td>	
-					<td>			<%= u.getDataAdmissao() %>	</td>
+					<td><strong>Data de Admissão</strong></td>
+					<%
+						SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+						String data = sdf.format(u.getDataAdmissao());
+					%>	
+					<td>			<%= data %>	</td>
 				</tr>
 				<tr>
 					<td><strong>	Celular		</strong></td>				
